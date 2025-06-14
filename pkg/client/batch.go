@@ -59,10 +59,6 @@ func (c Client) BatchGet(ctx context.Context, keys []string, dest any) error {
 	// the encoder can decode into that type
 	destValueType := destType.Elem()
 	for k, raw := range raws {
-		if raw == nil {
-			// If the raw value is nil, we skip setting it in the destination map
-			continue
-		}
 		// Create a zero value of the destination type to decode into
 		destValue := reflect.New(destValueType).Interface()
 		if err := c.opts.Encoder.Decode(raw, destValue); err != nil {
