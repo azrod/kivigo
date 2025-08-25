@@ -12,7 +12,7 @@ KiviGo is a lightweight key-value store library for Go. It provides a simple int
 
 ## ✨ Features
 
-- Unified interface for different backends ([Redis](pkg/backend/redis/redis.go), [local/BoltDB](pkg/backend/local/local.go), etc.)
+- Unified interface for different backends ([Redis](pkg/backend/redis/redis.go), [Memcached](backend/memcached/memcached.go), [local/BoltDB](pkg/backend/local/local.go), etc.)
 - Pluggable encoding/decoding ([JSON](pkg/encoder/json/json.go), [YAML](pkg/encoder/yaml/yaml.go), etc.)
 - Health check support (with custom checks)
 - List, add, and delete keys
@@ -71,6 +71,12 @@ KiviGo is designed for projects that need flexibility, testability, and the abil
 | [Redis](https://redis.io/)      | ✅                           | ✅                     | ✅     |
 | [Consul](https://github.com/hashicorp/consul) | ✅                    | ✅                     | ✅     |
 | [etcd](https://github.com/etcd-io/etcd)      | ✅                    | ✅                     | ✅     |
+
+#### Distributed Caches
+
+| Backend                        | Default (List/Get/Set/Delete) | Batch (Get/Set/Delete) | Health |
+|---------------------------------|:----------------------------:|:----------------------:|:------:|
+| [Memcached](https://memcached.org/)  | ✅                           | ✅                     | ✅     |
 
 ### 🛠️ Backend Options Initialization
 
